@@ -181,11 +181,11 @@ public class AdminPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //mainpane.setText("this is my first pane text");
+        mainpane.setText("this is my first pane text");
         FirstPane firstpane = new FirstPane();
         mainpane.add(firstpane);
         mainpane.getGraphics();
-        pane1.setUI();
+        //pane1.setUI();
     }//GEN-LAST:event_jButton1ActionPerformed
    
     /**
