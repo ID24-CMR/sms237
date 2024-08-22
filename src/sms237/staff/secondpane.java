@@ -9,12 +9,12 @@ package sms237.staff;
  *
  * @author idrice24
  */
-public class FirstPane extends javax.swing.JPanel {
+public class Secondpane extends javax.swing.JPanel {
 
     /**
-     * Creates new form FirstPane
+     * Creates new form secondpane
      */
-    public FirstPane() {
+    public Secondpane() {
         initComponents();
     }
 
@@ -29,26 +29,25 @@ public class FirstPane extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 255));
+        setBackground(new java.awt.Color(51, 51, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("welcome to my first pane ");
+        jLabel1.setText("welcome to the second pane");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(159, 159, 159)
                 .addComponent(jLabel1)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(96, 96, 96)
                 .addComponent(jLabel1)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
