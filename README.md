@@ -1,2 +1,3 @@
-# sms237
+# School Management System DESKTOP JAVA
+
  sms desktop
