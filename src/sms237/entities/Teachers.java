@@ -69,6 +69,8 @@ public class Teachers implements Serializable {
     @Column(name = "join_date")
     @Temporal(TemporalType.DATE)
     private Date joinDate;
+    @Column (name = "subject")
+    private String subject;
     @Column(name = "working_days")
     private Integer workingDays;
     @Column(name = "created_at")
@@ -165,6 +167,14 @@ public class Teachers implements Serializable {
 
     public Integer getWorkingDays() {
         return workingDays;
+    }
+    
+    public void setSubject(String subject){
+        this.subject = subject;
+    }
+    
+    public String getSubject(){
+        return subject;
     }
 
     public void setWorkingDays(Integer workingDays) {
