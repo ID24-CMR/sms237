@@ -7,7 +7,7 @@ package sms237.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,7 +59,7 @@ public class Teachers implements Serializable {
     @Column(name = "gender")
     private String gender;
     @Column(name = "dob")
-    private String dob;
+    private Date dob;
     @Column(name = "email")
     private String email;
     @Column(name = "phone")
@@ -82,8 +82,9 @@ public class Teachers implements Serializable {
 
     public Teachers() {
     }
-    public Teachers(String st) {
+    public Teachers(String st, String gn) {
         this.teacherFulName = st;
+        this.gender = gn;
     }
 
     public Teachers(Integer teacherId) {
@@ -122,11 +123,11 @@ public class Teachers implements Serializable {
         this.gender = gender;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 

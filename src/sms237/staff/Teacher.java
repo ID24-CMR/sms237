@@ -83,9 +83,14 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Reset");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("BACK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,7 +181,7 @@ public class Teacher extends javax.swing.JFrame {
             result = stmt.executeQuery(sql);
             Teachers teachers;
             while(result.next()){
-                teachers = new Teachers(result.getString("teacher_ful_name"));
+                teachers = new Teachers(result.getString("teacher_ful_name"),result.getString("gender"));
                 teacherList.add(teachers);
             }
             
@@ -184,6 +189,7 @@ public class Teacher extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return teacherList;
     }
     
@@ -201,7 +207,7 @@ public class Teacher extends javax.swing.JFrame {
             tea.setCreatedAt(d);
             DateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
             java.util.Date date = formatter.parse(txt_dob.getText());
-            tea.setDob(txt_dob.getText());
+            tea.setDob(date);
             tea.setEmail(txt_email.getText());
             tea.setGender((String) txt_gender.getSelectedItem());
             tea.setIsActive(1);
@@ -228,6 +234,10 @@ public class Teacher extends javax.swing.JFrame {
         }
          
     }//GEN-LAST:event_btn_submitActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     
