@@ -79,10 +79,25 @@ public final class Classe extends javax.swing.JFrame {
         jLabel8.setText("SUBJECTS NAME");
 
         txt_crname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "class name room" }));
+        txt_crname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_crnameActionPerformed(evt);
+            }
+        });
 
         txt_teacher.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Class Master" }));
+        txt_teacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_teacherActionPerformed(evt);
+            }
+        });
 
         txt_term.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "term name" }));
+        txt_term.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_termActionPerformed(evt);
+            }
+        });
 
         txt_subject.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Subject name" }));
 
@@ -192,6 +207,18 @@ public final class Classe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_crnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_crnameActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_txt_crnameActionPerformed
+
+    private void txt_termActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_termActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_txt_termActionPerformed
+
+    private void txt_teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_teacherActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_txt_teacherActionPerformed
 
     //calling set term list 
     public void setTermList(){
