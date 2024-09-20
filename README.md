@@ -39,5 +39,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
  ## Technologies (IDE) client/server
 
- ## Links to sample projects and wiki 
- sms desktop
+ ## Links to sample projects and wiki
