@@ -2,7 +2,7 @@
 <p align="center">
 	<a href="https://github.com/ID24-CMR/sms237/issues/" title="Open Isssues">
 		<img src="https://img.shields.io/github/issues/ID24-CMR/sms237"></a>
-	<a href="https://github.com/ID24-CMR/sms237/issues" title="Issueses Closed">
+	<a href="https://github.com/ID24-CMR/sms237/pulls" title="pull requests">
 		<img scr="https://img.shields.io/github/issues-pr/ID24-CMR/sms237">
 	</a>
 </p>
@@ -30,7 +30,7 @@
 
  ## Contributors
  	- idrice24
- 	
+
  ## Liecensing
  	Copyright (c) 2020 IDRICE24 company.
 Licensed under the **Apache License, Version 2.0** (the "License"); you may not use this file except in compliance with the License.
