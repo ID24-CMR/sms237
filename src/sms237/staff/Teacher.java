@@ -34,6 +34,7 @@ public class Teacher extends javax.swing.JFrame {
     public Teacher() {
         initComponents();
         setSubjectList();
+        
     }
 
     /**
@@ -99,6 +100,11 @@ public class Teacher extends javax.swing.JFrame {
         });
 
         jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jButton1);
 
         btn_submit.setText("SUBMIT");
@@ -296,6 +302,7 @@ public class Teacher extends javax.swing.JFrame {
 
     //get teacher id to edit
     public String getTeasId(String tea){
+        System.out.println("this is the teacher id:"+ tea);
         return tea;
     }
     
@@ -321,9 +328,16 @@ public class Teacher extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_genderActionPerformed
 
     private void editTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeaActionPerformed
-       this.dispose();
+       
+        this.dispose();
     }//GEN-LAST:event_editTeaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         txt_phone.setText(null);
+         txt_email.setText(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    //calling subject list array from subject class
     public void setSubjectList(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) txt_subject.getModel();
         Subject sub = new Subject();
