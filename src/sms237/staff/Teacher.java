@@ -34,6 +34,7 @@ public class Teacher extends javax.swing.JFrame {
     public Teacher() {
         initComponents();
         setSubjectList();
+        txt_tea_id.setEnabled(false);
         
     }
 
@@ -67,6 +68,9 @@ public class Teacher extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txt_subject = new javax.swing.JComboBox<>();
         editTea = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txt_tea_id = new javax.swing.JTextField();
+        TeaUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -138,6 +142,15 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("TEACH ID:");
+
+        TeaUpdate.setText("UPDATE");
+        TeaUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeaUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,31 +170,38 @@ public class Teacher extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel8))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_teaName)
-                                    .addComponent(txt_gender, 0, 266, Short.MAX_VALUE)
-                                    .addComponent(txt_dob)
-                                    .addComponent(txt_email)
-                                    .addComponent(txt_phone)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txt_teaName)
+                                        .addComponent(txt_gender, 0, 266, Short.MAX_VALUE)
+                                        .addComponent(txt_dob)
+                                        .addComponent(txt_email)
+                                        .addComponent(txt_phone)
+                                        .addComponent(txt_subject, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(TeaUpdate)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(editTea)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(back))
-                                    .addComponent(txt_subject, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(back)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(txt_wkd, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_wkd, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_tea_id, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,17 +233,22 @@ public class Teacher extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txt_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txt_wkd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_tea_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(back)
-                        .addComponent(editTea))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editTea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TeaUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
 
@@ -263,6 +288,42 @@ public class Teacher extends javax.swing.JFrame {
     
     
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
+        
+if(txt_tea_id != null){
+        reset_btn.setEnabled(true);
+        txt_phone.setEnabled(true);
+        txt_email.setEnabled(true);
+        txt_dob.setEnabled(true);
+        txt_subject.setEnabled(true);
+        txt_teaName.setEnabled(true);
+        txt_gender.setEnabled(true);
+        txt_wkd.setEnabled(true);
+        txt_tea_id.setEnabled(false);
+        
+        String sql = "SELECT * FROM teachers WHERE teacher_code='"+txt_tea_id.getText()+"'";
+        Statement stm;
+        Connection con = getConnections();
+        try{
+        stm = con.createStatement();
+        ResultSet result;
+        result = stm.executeQuery(sql);
+        while(result.next()){
+            Teachers teas = new Teachers();
+         System.out.println("this is teach name "+teas.getTeacherFulName());
+         
+         txt_phone.setText(result.getString("phone"));
+         txt_email.setText(result.getString("email"));
+         txt_dob.setText(result.getString("dob"));
+         txt_subject.setSelectedItem(result.getString("subject"));
+         txt_teaName.setText(result.getString("teacher_ful_name"));
+         txt_gender.setSelectedItem(result.getString("gender"));
+         txt_wkd.setText("5");
+        }
+        } catch (SQLException ex) {
+        Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    }else {
         try {
             Date d = new Date(00,00,00);
             Teachers tea = new Teachers();
@@ -279,9 +340,9 @@ public class Teacher extends javax.swing.JFrame {
             tea.setTeacherFulName(txt_teaName.getText());
             tea.setWorkingDays(txt_wkd.getCaretPosition());
             
-            String sql = "INSERT INTO teachers(teacher_code,teacher_ful_name,gender,dob,email,phone,is_active,join_date,working_days,created_at) VALUES('"+tea.getTeacherCode()+
+            String sql = "INSERT INTO teachers(teacher_code,teacher_ful_name,gender,dob,email,phone,is_active,join_date,working_days,created_at, subject) VALUES('"+tea.getTeacherCode()+
                     "','"+tea.getTeacherFulName()+"','"+tea.getGender()+"','"+tea.getDob()+"','"+tea.getEmail()+"','"+tea.getPhone()+
-                    "','"+tea.getIsActive()+"','"+tea.getJoinDate()+"','"+tea.getWorkingDays()+"','"+tea.getCreatedAt()+"')";
+                    "','"+tea.getIsActive()+"','"+tea.getJoinDate()+"','"+tea.getWorkingDays()+"','"+tea.getCreatedAt()+"','"+tea.getSubject()+"')";
             Statement stm;
             Connection con = getConnections();
             
@@ -297,7 +358,7 @@ public class Teacher extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+}
     }//GEN-LAST:event_btn_submitActionPerformed
 
     //get teacher id to edit
@@ -329,12 +390,16 @@ public class Teacher extends javax.swing.JFrame {
 
     private void editTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeaActionPerformed
 
+        reset_btn.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_dob.setEnabled(false);
+        txt_subject.setEnabled(false);
+        txt_teaName.setEnabled(false);
+        txt_gender.setEnabled(false);
+        txt_wkd.setEnabled(false);
+        txt_tea_id.setEnabled(true);
         
-        
-        
-        
-        
-        this.dispose();
     }//GEN-LAST:event_editTeaActionPerformed
 
     private void reset_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btnActionPerformed
@@ -346,6 +411,11 @@ public class Teacher extends javax.swing.JFrame {
          txt_gender.setSelectedItem(null);
          txt_wkd.setText(null);
     }//GEN-LAST:event_reset_btnActionPerformed
+
+    private void TeaUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeaUpdateActionPerformed
+        String sql = "UPDATE teachers SET teacher_code = '"+txt_tea_id.getText()+"' WHERE (`teacher_id` = '1')";
+        System.out.println("you have successfully updated teacher with id:"+ txt_tea_id.getText());
+    }//GEN-LAST:event_TeaUpdateActionPerformed
 
     //calling subject list array from subject class
     public void setSubjectList(){
@@ -393,6 +463,7 @@ public class Teacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton TeaUpdate;
     private javax.swing.JButton back;
     private javax.swing.JButton btn_submit;
     private javax.swing.JButton editTea;
@@ -404,6 +475,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton reset_btn;
@@ -413,6 +485,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JTextField txt_phone;
     private javax.swing.JComboBox<String> txt_subject;
     private javax.swing.JTextField txt_teaName;
+    private javax.swing.JTextField txt_tea_id;
     private javax.swing.JTextField txt_wkd;
     // End of variables declaration//GEN-END:variables
 }

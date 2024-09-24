@@ -5,6 +5,8 @@
  */
 package sms237.staff;
 
+import sms237.entities.Teachers;
+
 /**
  *
  * @author idrice24
@@ -93,6 +95,9 @@ public class EditTeacher extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Teacher teas = new Teacher();
+        Teachers tea = new Teachers();
+        
+        
         teas.getTeasId(editTeac.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
