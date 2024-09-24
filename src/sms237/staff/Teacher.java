@@ -60,7 +60,7 @@ public class Teacher extends javax.swing.JFrame {
         txt_phone = new javax.swing.JTextField();
         txt_wkd = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jButton1 = new javax.swing.JButton();
+        reset_btn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         btn_submit = new javax.swing.JButton();
         back = new javax.swing.JButton();
@@ -99,13 +99,13 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Reset");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        reset_btn.setText("Reset");
+        reset_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                reset_btnActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jButton1);
+        jScrollPane1.setViewportView(reset_btn);
 
         btn_submit.setText("SUBMIT");
         btn_submit.addActionListener(new java.awt.event.ActionListener() {
@@ -328,14 +328,24 @@ public class Teacher extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_genderActionPerformed
 
     private void editTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeaActionPerformed
-       
+
+        
+        
+        
+        
+        
         this.dispose();
     }//GEN-LAST:event_editTeaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void reset_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btnActionPerformed
          txt_phone.setText(null);
          txt_email.setText(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
+         txt_dob.setText(null);
+         txt_subject.setSelectedItem(null);
+         txt_teaName.setText(null);
+         txt_gender.setSelectedItem(null);
+         txt_wkd.setText(null);
+    }//GEN-LAST:event_reset_btnActionPerformed
 
     //calling subject list array from subject class
     public void setSubjectList(){
@@ -386,7 +396,6 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JButton btn_submit;
     private javax.swing.JButton editTea;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -397,6 +406,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton reset_btn;
     private javax.swing.JTextField txt_dob;
     private javax.swing.JTextField txt_email;
     private javax.swing.JComboBox<String> txt_gender;
