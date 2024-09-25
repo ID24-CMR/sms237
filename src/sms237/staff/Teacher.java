@@ -103,14 +103,20 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
-        reset_btn.setText("Reset");
+        reset_btn.setText("RESET");
+        reset_btn.setActionCommand("RESET");
+        reset_btn.setMaximumSize(new java.awt.Dimension(79, 25));
+        reset_btn.setMinimumSize(new java.awt.Dimension(79, 25));
+        reset_btn.setPreferredSize(new java.awt.Dimension(79, 25));
         reset_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reset_btnActionPerformed(evt);
             }
         });
         jScrollPane1.setViewportView(reset_btn);
+        reset_btn.getAccessibleContext().setAccessibleName("RESET");
 
+        btn_submit.setBackground(new java.awt.Color(51, 102, 255));
         btn_submit.setText("SUBMIT");
         btn_submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +141,11 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
+        editTea.setBackground(new java.awt.Color(204, 255, 204));
         editTea.setText("EDIT");
+        editTea.setMaximumSize(new java.awt.Dimension(79, 25));
+        editTea.setMinimumSize(new java.awt.Dimension(79, 25));
+        editTea.setPreferredSize(new java.awt.Dimension(79, 25));
         editTea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editTeaActionPerformed(evt);
@@ -144,6 +154,7 @@ public class Teacher extends javax.swing.JFrame {
 
         jLabel9.setText("TEACH ID:");
 
+        TeaUpdate.setBackground(new java.awt.Color(255, 255, 204));
         TeaUpdate.setText("UPDATE");
         TeaUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +197,7 @@ public class Teacher extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(editTea)
+                                        .addComponent(editTea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(back)))))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -298,7 +309,10 @@ if(txt_tea_id != null){
         txt_teaName.setEnabled(true);
         txt_gender.setEnabled(true);
         txt_wkd.setEnabled(true);
-        txt_tea_id.setEnabled(false);
+        txt_tea_id.setEnabled(true);
+        btn_submit.setEnabled(false);
+        reset_btn.setEnabled(false);
+        editTea.setEnabled(false);
         
         String sql = "SELECT * FROM teachers WHERE teacher_code='"+txt_tea_id.getText()+"'";
         Statement stm;
@@ -413,7 +427,19 @@ if(txt_tea_id != null){
     }//GEN-LAST:event_reset_btnActionPerformed
 
     private void TeaUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeaUpdateActionPerformed
-        String sql = "UPDATE teachers SET teacher_code = '"+txt_tea_id.getText()+"' WHERE (`teacher_id` = '1')";
+        String sql = "UPDATE teachers SET teacher_code = '"+txt_tea_id.getText()+"', phone ='"+txt_phone.getText()+"', email = '"+txt_email.getText()+
+                "', dob = '"+txt_dob.getText()+"', teacher_ful_name ='"+txt_teaName.getText()+"', gender = '"+txt_gender.getSelectedItem()+"', working_days = '"+txt_wkd.getText()+
+                "', subject = '"+txt_subject.getSelectedItem()+"'  WHERE (teacher_id = '"+txt_tea_id.getText()+"')";
+        Statement stm;
+        Connection con = getConnections();
+        try{
+            stm = con.createStatement();
+            stm.execute(sql);
+            System.out.println("update successfuly");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("you have successfully updated teacher with id:"+ txt_tea_id.getText());
     }//GEN-LAST:event_TeaUpdateActionPerformed
 
