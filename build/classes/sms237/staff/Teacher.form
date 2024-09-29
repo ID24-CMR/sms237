@@ -144,8 +144,8 @@
                       <Component id="back" alignment="3" max="32767" attributes="0"/>
                       <Component id="editTea" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Component id="TeaUpdate" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -290,9 +290,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="editTea">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="ff" red="cc" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="EDIT"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[79, 25]"/>

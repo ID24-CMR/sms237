@@ -141,7 +141,6 @@ public class Teacher extends javax.swing.JFrame {
             }
         });
 
-        editTea.setBackground(new java.awt.Color(204, 255, 204));
         editTea.setText("EDIT");
         editTea.setMaximumSize(new java.awt.Dimension(79, 25));
         editTea.setMinimumSize(new java.awt.Dimension(79, 25));
@@ -258,8 +257,8 @@ public class Teacher extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(editTea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TeaUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(TeaUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addGap(25, 25, 25))
         );
 
@@ -300,44 +299,7 @@ public class Teacher extends javax.swing.JFrame {
     
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
         
-if(txt_tea_id != null){
-        reset_btn.setEnabled(true);
-        txt_phone.setEnabled(true);
-        txt_email.setEnabled(true);
-        txt_dob.setEnabled(true);
-        txt_subject.setEnabled(true);
-        txt_teaName.setEnabled(true);
-        txt_gender.setEnabled(true);
-        txt_wkd.setEnabled(true);
-        txt_tea_id.setEnabled(true);
-        btn_submit.setEnabled(false);
-        reset_btn.setEnabled(false);
-        editTea.setEnabled(false);
-        
-        String sql = "SELECT * FROM teachers WHERE teacher_code='"+txt_tea_id.getText()+"'";
-        Statement stm;
-        Connection con = getConnections();
-        try{
-        stm = con.createStatement();
-        ResultSet result;
-        result = stm.executeQuery(sql);
-        while(result.next()){
-            Teachers teas = new Teachers();
-         System.out.println("this is teach name "+teas.getTeacherFulName());
-         
-         txt_phone.setText(result.getString("phone"));
-         txt_email.setText(result.getString("email"));
-         txt_dob.setText(result.getString("dob"));
-         txt_subject.setSelectedItem(result.getString("subject"));
-         txt_teaName.setText(result.getString("teacher_ful_name"));
-         txt_gender.setSelectedItem(result.getString("gender"));
-         txt_wkd.setText("5");
-        }
-        } catch (SQLException ex) {
-        Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    
-    }else {
+    if( txt_tea_id.getText().isEmpty()){
         try {
             Date d = new Date(00,00,00);
             Teachers tea = new Teachers();
@@ -353,6 +315,7 @@ if(txt_tea_id != null){
             tea.setTeacherCode("TEA00"+teacherCode());
             tea.setTeacherFulName(txt_teaName.getText());
             tea.setWorkingDays(txt_wkd.getCaretPosition());
+            tea.setSubject((String) txt_subject.getSelectedItem());
             
             String sql = "INSERT INTO teachers(teacher_code,teacher_ful_name,gender,dob,email,phone,is_active,join_date,working_days,created_at, subject) VALUES('"+tea.getTeacherCode()+
                     "','"+tea.getTeacherFulName()+"','"+tea.getGender()+"','"+tea.getDob()+"','"+tea.getEmail()+"','"+tea.getPhone()+
@@ -372,7 +335,44 @@ if(txt_tea_id != null){
         } catch (ParseException ex) {
             Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+    } else{
+        reset_btn.setEnabled(true);
+        txt_phone.setEnabled(true);
+        txt_email.setEnabled(true);
+        txt_dob.setEnabled(true);
+        txt_subject.setEnabled(true);
+        txt_teaName.setEnabled(true);
+        txt_gender.setEnabled(true);
+        txt_wkd.setEnabled(true);
+        txt_tea_id.setEnabled(true);
+        btn_submit.setEnabled(false);
+        reset_btn.setEnabled(false);
+        editTea.setEnabled(false);
+        
+        String sql = "SELECT * FROM teachers WHERE teacher_code='"+txt_tea_id.getText()+"'";
+        Statement stm;
+        Connection con = getConnections();
+        try{
+            stm = con.createStatement();
+            ResultSet result;
+            result = stm.executeQuery(sql);
+            while(result.next()){
+                Teachers teas = new Teachers();
+                System.out.println("this is teach name "+teas.getTeacherFulName());
+                
+                txt_phone.setText(result.getString("phone"));
+                txt_email.setText(result.getString("email"));
+                txt_dob.setText(result.getString("dob"));
+                txt_subject.setSelectedItem(result.getString("subject"));
+                txt_teaName.setText(result.getString("teacher_ful_name"));
+                txt_gender.setSelectedItem(result.getString("gender"));
+                txt_wkd.setText("5");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     }//GEN-LAST:event_btn_submitActionPerformed
 
     //get teacher id to edit
@@ -427,9 +427,13 @@ if(txt_tea_id != null){
     }//GEN-LAST:event_reset_btnActionPerformed
 
     private void TeaUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeaUpdateActionPerformed
+        if(txt_email.getText() == null || txt_tea_id.getText() == null){
+            System.out.println("please enter teachers info "+txt_email.getText());
+        }else{
+        
         String sql = "UPDATE teachers SET teacher_code = '"+txt_tea_id.getText()+"', phone ='"+txt_phone.getText()+"', email = '"+txt_email.getText()+
                 "', dob = '"+txt_dob.getText()+"', teacher_ful_name ='"+txt_teaName.getText()+"', gender = '"+txt_gender.getSelectedItem()+"', working_days = '"+txt_wkd.getText()+
-                "', subject = '"+txt_subject.getSelectedItem()+"'  WHERE (teacher_id = '"+txt_tea_id.getText()+"')";
+                "', subject = '"+txt_subject.getSelectedItem()+"'  WHERE (teacher_code = '"+txt_tea_id.getText()+"')";
         Statement stm;
         Connection con = getConnections();
         try{
@@ -442,7 +446,7 @@ if(txt_tea_id != null){
         }
         System.out.println("you have successfully updated teacher with id:"+ txt_tea_id.getText());
     }//GEN-LAST:event_TeaUpdateActionPerformed
-
+    }
     //calling subject list array from subject class
     public void setSubjectList(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) txt_subject.getModel();
